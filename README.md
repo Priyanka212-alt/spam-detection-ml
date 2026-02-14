@@ -13,30 +13,29 @@ To save trained models for reuse
 To implement a reusable prediction function
 
 Technologies Used
-Python
-Pandas
-NumPy
-NLTK
-Scikit-learn
-Matplotlib
-Joblib
-VS Code
-Jupyter Notebook
+1. Python
+2. Pandas
+3. NumPy
+4. NLTK
+5. Scikit-learn
+6. Matplotlib
+7. Joblib
+8. VS Code
+9. Jupyter Notebook
 
 Project Structure
-spam-detection-ml
-│
-├── dataset
-│   └── sms.tsv
-│
-├── model
-│   ├── spam_model.pkl
-│   └── tfidf_vectorizer.pkl
-│
-├── notebook
-│   └── spam_detection.ipynb
-│
-└── README.md
+1 spam-detection-ml
+1.1 dataset
+1.1.1sms.tsv
+
+2 model
+2.1 spam_model.pkl
+2.2 tfidf_vectorizer.pkl
+
+3 notebook
+3.1 spam_detection.ipynb
+
+ 4 README.md
 
 Workflow
 Load dataset
