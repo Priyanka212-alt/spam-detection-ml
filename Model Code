@@ -1,0 +1,80 @@
+import pandas as pd
+
+df = pd.read_csv("../sms.tsv", sep="\t", header=None, names=["label", "message"])
+
+df.head()
+
+df.info()
+
+df['label'].value_counts()
+
+df['length'] = df['message'].apply(len)
+df[['label', 'length']].head()
+
+df.groupby('label')['length'].describe()
+import string
+import nltk
+from nltk.corpus import stopwords
+
+nltk.download('stopwords')
+
+import string
+from nltk.corpus import stopwords
+
+def clean_text(text):
+    # lowercase
+    text = text.lower()
+    
+    # remove punctuation
+    text = ''.join([char for char in text if char not in string.punctuation])
+    
+    # remove stopwords
+    words = text.split()
+    words = [word for word in words if word not in stopwords.words('english')]
+    
+    return ' '.join(words)
+
+df['cleaned_message'] = df['message'].apply(clean_text)
+df.head()
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+tfidf = TfidfVectorizer(max_features=3000)
+
+X = tfidf.fit_transform(df['cleaned_message']).toarray()
+y = df['label']
+
+X.shape, y.shape
+
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+X_train.shape, X_test.shape
+
+from sklearn.naive_bayes import MultinomialNB
+
+model = MultinomialNB()
+model.fit(X_train, y_train)
+
+from sklearn.metrics import accuracy_score, classification_report
+
+y_pred = model.predict(X_test)
+
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+
+def predict_spam(text):
+    text = clean_text(text)
+    vector = tfidf.transform([text]).toarray()
+    prediction = model.predict(vector)[0]
+    return prediction
+
+import joblib
+
+joblib.dump(model, "../model/spam_model.pkl")
+joblib.dump(tfidf, "../model/tfidf_vectorizer.pkl")
+
+print("Model saved successfully")
