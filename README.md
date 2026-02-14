@@ -1,44 +1,29 @@
-📧 Spam Detection using Machine Learning (Naive Bayes)
-📌 Project Overview
+Spam Detection using Machine Learning (Naive Bayes)
+Project Overview
 
-This project implements a Spam Detection System using Natural Language Processing (NLP) and Machine Learning techniques.
-It classifies SMS messages as Spam or Ham (Not Spam) using the Multinomial Naive Bayes algorithm.
+This project implements a spam detection system using Natural Language Processing and Machine Learning techniques. The goal is to classify SMS messages as either Spam or Ham (Not Spam). The model is trained using the Multinomial Naive Bayes algorithm and provides accurate predictions based on text content.
 
-The model is trained on a real-world SMS dataset and achieves high accuracy in spam classification.
+The project covers the complete machine learning pipeline including data preprocessing, feature extraction, model training, evaluation, and saving trained models for future predictions.
 
-🎯 Objectives
+Objectives
+To automatically detect spam messages
+To apply NLP preprocessing techniques
+To build and evaluate a machine learning classification model
+To save trained models for reuse
+To implement a reusable prediction function
 
-Detect spam SMS messages automatically
-
-Apply NLP preprocessing techniques
-
-Train and evaluate a machine learning classifier
-
-Save trained models for reuse
-
-Build a reusable prediction function
-
-🧠 Technologies Used
-
+Technologies Used
 Python
-
 Pandas
-
 NumPy
-
 NLTK
-
 Scikit-learn
-
 Matplotlib
-
 Joblib
-
 VS Code
-
 Jupyter Notebook
 
-📂 Project Structure
+Project Structure
 spam-detection-ml
 │
 ├── dataset
@@ -53,70 +38,41 @@ spam-detection-ml
 │
 └── README.md
 
-⚙️ Workflow
+Workflow
+Load dataset
+Data cleaning and preprocessing
+Feature extraction using TF-IDF
+Model training using Naive Bayes
+Model evaluation
+Save trained model
+Predict spam messages
+Model Performance
+Accuracy achieved by the trained model is approximately 97.4 percent using the Multinomial Naive Bayes algorithm.
 
-Load Dataset
-
-Data Cleaning & Preprocessing
-
-Feature Extraction using TF-IDF
-
-Model Training using Naive Bayes
-
-Model Evaluation
-
-Save Trained Model
-
-Predict Spam Messages
-
-📊 Model Performance
-Metric	Value
-Accuracy	97.4%
-Algorithm	Multinomial Naive Bayes
-🚀 How to Run
-Step 1: Install Dependencies
+How to Run
+Step 1 Install Required Libraries
 pip install pandas numpy scikit-learn nltk matplotlib joblib
 
-Step 2: Run Notebook
-
-Open and execute:
-
+Step 2 Run the Notebook
+Open and execute the notebook file
 notebook/spam_detection.ipynb
 
-🔮 Spam Prediction Example
+Sample Prediction
 predict_spam("Congratulations! You have won a free prize. Click now!")
 
-
-Output:
+Output
 
 spam
 
-💾 Saved Models
+Saved Models
 
-spam_model.pkl → Trained classification model
+spam_model.pkl contains the trained classification model
+tfidf_vectorizer.pkl contains the trained TF-IDF vectorizer
+These files allow prediction without retraining the model.
 
-tfidf_vectorizer.pkl → Text vectorization model
+Future Scope
 
-These allow direct prediction without retraining.
+Deploy the project as a web application using Flask or Streamlit
+Improve accuracy using deep learning models
+Add real time SMS classification interface
 
-📈 Future Improvements
-
-Deploy as a web application using Flask / Streamlit
-
-Use Deep Learning (LSTM / BERT) for improved accuracy
-
-Add real-time SMS classification interface
-
-👩‍💻 Author
-
-Priyanka Chitranshi
-B.Tech CSE Student
-GitHub: Priyanka212-alt
-
-⭐ If you like this project, give it a star!
-
-If you want, I can also help you:
-
-✅ Make project report PDF
-✅ Create resume-ready description
-✅ Build web app version
